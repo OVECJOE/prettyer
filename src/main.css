@@ -1,0 +1,30 @@
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+body {
+	font-family: 'Gabarito', cursive !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	width: 90vw;
+	height: 600px
+}
+
+.flex-align-center {
+	display: flex;
+	align-items: center;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.not-selectable {
+	-webkit-user-select: none;
+	user-select: none;
+}
