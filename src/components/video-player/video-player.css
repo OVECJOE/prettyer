@@ -38,9 +38,11 @@
 
 .controls {
 	position: absolute;
-	bottom: 15px;
-	left: 10px;
-	right: 20px;
+	padding-bottom: 15px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: linear-gradient(to top, #000000d1, transparent);
 }
 
 .control-buttons {
@@ -48,6 +50,7 @@
 	align-items: center;
 	justify-content: space-between;
 	z-index: 4;
+	padding-inline: 10px;
 }
 
 .icon-button {

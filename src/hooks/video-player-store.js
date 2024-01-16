@@ -16,11 +16,16 @@ const INITIAL_SETTINGS = {
 	isVideoPlaying: false,
 	hideControls: false,
 	playingStateIcon: '/icons/play-svgrepo-com.svg',
+	currentBarWidth: 0,
 }
 
 const ACTION_TYPES_CATEGORIES = ["SET_", "TOGGLE_"]
 
 const reducer = (state, action) => {
+	if (action.type === "RESET") {
+		return INITIAL_SETTINGS
+	}
+
 	// check if the action type category is valid
 	const typeCategory = ACTION_TYPES_CATEGORIES.find(category => action.type.startsWith(category))
 	if (!typeCategory) {
@@ -62,8 +67,16 @@ const reducer = (state, action) => {
 
 export default function useVideoPlayerStore() {
 	const videoRef = useRef(null)
-	const [store, dispatch] = useReducer(reducer, {
-		...INITIAL_SETTINGS, videoRef
-	})
-	return { store, dispatch }
+	const bgBarRef = useRef(null)
+
+	const [store, dispatch] = useReducer(reducer, INITIAL_SETTINGS)
+
+	return {
+		store,
+		dispatch,
+		refs: {
+			videoRef,
+			bgBarRef,
+		}
+	}
 }
